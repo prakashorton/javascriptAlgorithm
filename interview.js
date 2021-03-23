@@ -32,4 +32,10 @@ Function.prototype.mybind = function (context, ...args1) {
 };
 
 // Reduce
-
+Array.prototype.myReduce = function(func, init){
+    var initial = init;
+    this.forEach(function(item){
+        initial = func(initial, item);
+    });
+    return initial;
+}
