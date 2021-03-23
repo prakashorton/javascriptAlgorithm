@@ -30,3 +30,6 @@ Function.prototype.mybind = function (context, ...args1) {
       fn.apply(context, [...args1, ...arg2])
   }
 };
+
+// Reduce
+
