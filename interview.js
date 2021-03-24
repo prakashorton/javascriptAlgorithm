@@ -39,3 +39,20 @@ Array.prototype.myReduce = function(func, init){
     });
     return initial;
 }
+
+var a = [10, 21, 13, 56];
+
+function add(a, b) { return a + b }
+function foo(a, b) { return a.concat(b) }
+
+Array.prototype.reduce2 = function(fn, start){
+  var result = start !== undefined ? start : this[0];
+  for (var i = 0; i < this.length; i++) {
+    result = fn(result, this[i]);
+  }
+  return result;
+};
+console.log(a.reduce(add), a.reduce2(add))         // 100 100
+console.log(a.reduce(add, 10), a.reduce2(add, 10)) // 110 110
+console.log(a.reduce(foo, ''), a.reduce2(foo, ''));
+console.log(a.reduce(foo, 'X'), a.reduce2(foo, 'X'));
