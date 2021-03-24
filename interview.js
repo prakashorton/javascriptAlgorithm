@@ -56,3 +56,31 @@ console.log(a.reduce(add), a.reduce2(add))         // 100 100
 console.log(a.reduce(add, 10), a.reduce2(add, 10)) // 110 110
 console.log(a.reduce(foo, ''), a.reduce2(foo, ''));
 console.log(a.reduce(foo, 'X'), a.reduce2(foo, 'X'));
+
+// ForEach
+Array.prototype.myforEach = function (cb) {
+    for (let i = 0; i < this.length; i++) {
+        cb(this[i]);
+    }
+}
+
+// Map
+Array.prototype.myMap = function (cb) {
+    let arr = [];
+    for (let i = 0; i < this.length; i++) {
+
+        arr.push(cb(this[i]));
+    }
+    return arr;
+}
+
+// Filter
+Array.prototype.myFilter = function (cb) {
+    let arr = [];
+    for (let i = 0; i < this.length; i++) {
+        if (cb(this[i])) {
+            arr.push(this[i]);
+         }
+    }
+    return arr;
+}
